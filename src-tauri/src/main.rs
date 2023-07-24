@@ -32,27 +32,6 @@ fn main() {
         .invoke_handler(tauri::generate_handler![greet])
         .system_tray(tray)
         .on_system_tray_event(|app, event| match event {
-            SystemTrayEvent::LeftClick {
-                position: _,
-                size: _,
-                ..
-            } => {
-                println!("system tray received a left click");
-            }
-            SystemTrayEvent::RightClick {
-                position: _,
-                size: _,
-                ..
-            } => {
-                println!("system tray received a right click");
-            }
-            SystemTrayEvent::DoubleClick {
-                position: _,
-                size: _,
-                ..
-            } => {
-                println!("system tray received a double click");
-            }
             SystemTrayEvent::MenuItemClick { id, .. } => match id.as_str() {
                 "quit" => std::process::exit(0),
                 "toggle" => toggle_fn(app),
