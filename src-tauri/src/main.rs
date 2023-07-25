@@ -45,11 +45,6 @@ fn main() {
                 event.window().hide().unwrap();
                 api.prevent_close();
             }
-            tauri::WindowEvent::Focused(false) => {
-                // hide the window automaticall when the user
-                // clicks out. this is for a matter of taste.
-                event.window().hide().unwrap();
-            }
             _ => {}
         })
         .run(tauri::generate_context!())
